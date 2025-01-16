@@ -135,6 +135,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+elizaenv/
 
 # Spyder project settings
 .spyderproject
@@ -181,3 +182,5 @@ cython_debug/
 __pycache__/
 *.py[cod]
 *$py.class
+
+
