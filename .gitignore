@@ -172,3 +172,12 @@ cython_debug/
 
 # macOS
 .DS_Store
+
+# Python virtual environments
+.vscode/
+.vscode/settings.json
+
+# Pycache
+__pycache__/
+*.py[cod]
+*$py.class
