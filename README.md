@@ -42,7 +42,7 @@ Goodbye.  Thank you for talking to me.
 import eliza
 
 eliza = eliza.Eliza()
-eliza.load('doctorNew.txt') # for improved Eliza ('doctorOG.txt' otherwise)
+eliza.load('doctorNew.txt') # for improved Eliza ('doctorOG.txt' for original)
 
 print(eliza.initial())
 while True:
