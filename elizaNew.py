@@ -4,6 +4,7 @@ import re
 from collections import namedtuple
 # new imports
 from textblob import TextBlob
+import spacy
 
 # Fix Python2/Python3 incompatibility
 try: input = raw_input
@@ -29,6 +30,7 @@ class Decomp:
 
 class Eliza:
     def __init__(self):
+        self.nlp = spacy.load("en_core_web_sm")
         self.initials = []
         self.finals = []
         self.quits = []
@@ -170,12 +172,25 @@ class Eliza:
             return output
         return None
     
-    # custom spell check method
     def spell_check(self, word_list):
         corrected_words = []
-        for word in word_list:
-            corrected_word = TextBlob(word).correct()
-            corrected_words.append(str(corrected_word))
+        text = " ".join(word_list)
+        doc = self.nlp(text)
+
+        # Collect named entities to exclude
+        excluded_words = {ent.text.lower() for ent in doc.ents}
+
+        for token in doc:
+            word = token.text
+            # Skip spell check for excluded words or entities
+            if word.lower() in excluded_words or token.pos_ in {"PROPN", "NOUN"}:
+                print("word not corrected: ", word)
+                corrected_words.append(word)
+            else:
+                print("word corrected: ", word)
+                corrected_word = TextBlob(word).correct()
+                corrected_words.append(str(corrected_word))
+        
         return corrected_words
 
     def respond(self, text):
@@ -190,12 +205,13 @@ class Eliza:
         words = [w for w in text.split(' ') if w]
         log.debug('Input: %s', words)
 
+        words = self._sub(words, self.pres)
+        log.debug('After pre-substitution: %s', words)
+
         # Apply spell check
         words = self.spell_check(words)
         log.debug('Input after spell-check: %s', words)
-
-        words = self._sub(words, self.pres)
-        log.debug('After pre-substitution: %s', words)
+        print(words)
 
         keys = [self.keys[w.lower()] for w in words if w.lower() in self.keys]
         keys = sorted(keys, key=lambda k: -k.weight)
