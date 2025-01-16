@@ -12,10 +12,23 @@ Before running the chatbot, you need to download the spaCy language model:
 $ python -m spacy download en_core_web_sm
 ```
 
+You should also create a Python virtual environment and install the dependencies using `requirements.txt`:
+
+```
+$ python -m venv venv
+$ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+$ pip install -r requirements.txt
+```
+
 Can be run interactively:
 
 ```
-$ python eliza.py
+$ python elizaNew.py
+
+or
+
+$ python elizaOG.py
+
 How do you do.  Please tell me your problem.
 > I would like to have a chat bot.
 You say you would like to have a chat bot ?
@@ -29,7 +42,7 @@ Goodbye.  Thank you for talking to me.
 import eliza
 
 eliza = eliza.Eliza()
-eliza.load('doctor.txt')
+eliza.load('doctorNew.txt') # for improved Eliza ('doctorOG.txt' otherwise)
 
 print(eliza.initial())
 while True:
