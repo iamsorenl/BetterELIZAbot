@@ -183,7 +183,7 @@ class Eliza:
         for token in doc:
             word = token.text
             # Skip spell check for excluded words or entities
-            if word.lower() in excluded_words or token.pos_ in {"PROPN", "NOUN"}:
+            if word.lower() in excluded_words or token.pos_ in {"PROPN", "NOUN"} or word.lower() == "nt":
                 print("word not corrected: ", word)
                 corrected_words.append(word)
             else:
@@ -192,6 +192,29 @@ class Eliza:
                 corrected_words.append(str(corrected_word))
         
         return corrected_words
+    
+    def lemmatize(self, word_list):
+        # List of stems or patterns to identify contractions
+        contraction_stems = ["n't", "nt", "'ve", "'re", "'ll", "'d", "'m", "'s"]
+        
+        lemmatized_words = []
+        text = " ".join(word_list)
+        doc = self.nlp(text)
+
+        for token in doc:
+            word = token.text
+            lower_word = word.lower()
+
+            # Check if the word contains any contraction stem
+            if any(stem in lower_word for stem in contraction_stems):
+                # Replace the word with its lemma
+                lemmatized_words.append(token.lemma_)
+            else:
+                # Leave the word unchanged
+                lemmatized_words.append(word)
+
+        return lemmatized_words
+
 
     def respond(self, text):
         if text.lower() in self.quits:
@@ -212,6 +235,11 @@ class Eliza:
         words = self.spell_check(words)
         log.debug('Input after spell-check: %s', words)
         print(words)
+
+        # Apply lemmatization
+        words = self.lemmatize(words)
+        log.debug('After lemmatization: %s', words)
+        print("lematize", words)
 
         keys = [self.keys[w.lower()] for w in words if w.lower() in self.keys]
         keys = sorted(keys, key=lambda k: -k.weight)

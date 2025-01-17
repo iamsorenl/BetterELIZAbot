@@ -3,9 +3,12 @@ final: Goodbye.  Thank you for talking to me.
 quit: bye
 quit: goodbye
 quit: quit
-pre: dont don't
-pre: cant can't
-pre: wont won't
+pre: dont do not
+pre: don't do not
+pre: cant can not
+pre: can't can not
+pre: wont will not
+pre: won't will not
 pre: recollect remember
 pre: dreamt dreamed
 pre: dreams dream
@@ -29,58 +32,7 @@ pre: ha funny
 pre: laugh funny
 pre: kinda kind of
 pre: sorta sort of
-pre: shouldve should have
-pre: should've should have
-pre: shoulda should have
-pre: wouldve would have
-pre: would've would have
-pre: woulda would have
-pre: couldve could have
-pre: could've could have
-pre: coulda could have
-pre: aren't are not
-pre: couldn't could not
-pre: didn't did not
-pre: doesn't does not
-pre: hadn't had not
-pre: hasn't has not
-pre: haven't have not
-pre: isn't is not
-pre: shouldn't should not
-pre: won't will not
-pre: wouldn't would not
-pre: she'd she would
-pre: she'll she will
-pre: she's she is
-pre: he'd he would
-pre: he'll he will
-pre: he's he is
-pre: it'd it would
-pre: it'll it will
-pre: it's it is
-pre: let's let us
-pre: we'd we would
-pre: we'll we will
-pre: we're we are
-pre: they've they have
-pre: they'd they would
-pre: they'll they will
-pre: they're they are
-pre: you've you have
-pre: you'd you would
-pre: you'll you will
-pre: what'll what will
-pre: what's what is
-pre: where's where is
-pre: who's who is
-pre: why's why is
-pre: how's how is
-pre: gonna going to
-pre: wanna want to
-pre: gotta got to
-pre: kinda kind of
-pre: sorta sort of
-pre: ain't is not
+pre: nt n't
 post: am are
 post: your my
 post: me you
