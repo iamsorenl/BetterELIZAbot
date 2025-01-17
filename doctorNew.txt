@@ -381,4 +381,14 @@ key: funny
     reasmb: Can you share what’s so humerous?
 key: flirt
   decomp: *
-    reasmb: Are you normally this flirty?
+    reasmb: I'm just here to listen, not to date.
+    reasmb: Let's keep things professional, shall we?
+    reasmb: I think you're mistaking me for someone else.
+    reasmb: That's flattering, but let's focus on your thoughts.
+    reasmb: My job is to help, not to flirt.
+    reasmb: Maybe you're projecting something here?
+    reasmb: Let's steer the conversation back to you.
+    reasmb: I'm not sure what you're getting at.
+    reasmb: Do you often feel the need to flirt in conversations?
+    reasmb: Let's keep our chat about you for now.
+
