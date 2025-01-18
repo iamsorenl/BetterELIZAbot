@@ -33,6 +33,13 @@ pre: laugh funny
 pre: kinda kind of
 pre: sorta sort of
 pre: nt n't
+pre: stunning beautiful
+pre: gorgeous beautiful
+pre: alluring beautiful
+pre: pretty beautiful
+pre: breathtaking beautiful
+pre: hottie beautiful
+pre: cute beautiful
 post: am are
 post: your my
 post: me you
@@ -245,6 +252,18 @@ key: you
     reasmb: goto alike
   decomp: * you are funny *
     reasmb: goto funny
+  decomp: * you are sexy *
+    reasmb: goto flirt
+  decomp: * you are attractive *
+    reasmb: goto flirt
+  decomp: * you are beautiful *
+    reasmb: goto flirt
+  decomp: * you look sexy *
+    reasmb: goto flirt
+  decomp: * you look attractive *
+    reasmb: goto flirt
+  decomp: * you look beautiful *
+    reasmb: goto flirt
   decomp: * you are *
     reasmb: What makes you think I am (2) ?
     reasmb: Does it please you to believe I am (2) ?
@@ -386,9 +405,4 @@ key: flirt
     reasmb: I think you're mistaking me for someone else.
     reasmb: That's flattering, but let's focus on your thoughts.
     reasmb: My job is to help, not to flirt.
-    reasmb: Maybe you're projecting something here?
-    reasmb: Let's steer the conversation back to you.
-    reasmb: I'm not sure what you're getting at.
     reasmb: Do you often feel the need to flirt in conversations?
-    reasmb: Let's keep our chat about you for now.
-
