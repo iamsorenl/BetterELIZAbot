@@ -184,10 +184,8 @@ class Eliza:
             word = token.text
             # Skip spell check for excluded words or entities
             if word.lower() in excluded_words or token.pos_ in {"PROPN", "NOUN"} or word.lower() == "nt":
-                print("word not corrected: ", word)
                 corrected_words.append(word)
             else:
-                print("word corrected: ", word)
                 corrected_word = TextBlob(word).correct()
                 corrected_words.append(str(corrected_word))
         
@@ -234,12 +232,10 @@ class Eliza:
         # Apply spell check
         words = self.spell_check(words)
         log.debug('Input after spell-check: %s', words)
-        print(words)
 
         # Apply lemmatization
         words = self.lemmatize(words)
         log.debug('After lemmatization: %s', words)
-        print("lematize", words)
 
         keys = [self.keys[w.lower()] for w in words if w.lower() in self.keys]
         keys = sorted(keys, key=lambda k: -k.weight)
