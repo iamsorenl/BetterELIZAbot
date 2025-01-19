@@ -20,6 +20,7 @@ pre: machine computer
 pre: computers computer
 pre: were was
 pre: you're you are
+pre: youre you are
 pre: i'm i am
 pre: same alike
 pre: lol funny
